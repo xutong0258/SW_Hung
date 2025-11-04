@@ -957,14 +957,33 @@ def parse_storclass(result_list, result_dict):
             Storclass_FDO1_address = split_list[0]
             Storclass_FDO1_DeviceID = f'{split_list[5]} {split_list[6]}'
 
+            Storclass_0_FL = split_list[-1]
+            logger.info(f'Storclass_0_FL: {Storclass_0_FL}')
+
             # logger.info(f'Storclass_FDO1_DeviceID: {Storclass_FDO1_DeviceID}')
             # logger.info(f'Storclass_FDO1_address: {Storclass_FDO1_address}')
 
             result_dict['Storclass_FDO1_address'] = Storclass_FDO1_address
             result_dict['Storclass_FDO1_DeviceID'] = Storclass_FDO1_DeviceID
+            result_dict['Storclass_0_FL'] = Storclass_0_FL
 
-    # result_dict['NDIS_OID_Context'] = result
+            logger.info(f'result_dict: {result_dict}')
 
+            Storclass_FDO2_address = result_list[idx + 3]
+            split_list = Storclass_FDO2_address.split(' ')
+            Storclass_FDO2_address = split_list[0]
+            if is_address(Storclass_FDO2_address):
+                Storclass_FDO2_DeviceID = f'{split_list[5]} {split_list[6]}'
+
+                Storclass_1_FL = split_list[-1]
+                logger.info(f'Storclass_1_FL: {Storclass_1_FL}')
+
+                # logger.info(f'Storclass_FDO1_DeviceID: {Storclass_FDO1_DeviceID}')
+                # logger.info(f'Storclass_FDO1_address: {Storclass_FDO1_address}')
+
+                result_dict['Storclass_FDO2_address'] = Storclass_FDO2_address
+                result_dict['Storclass_FDO2_DeviceID'] = Storclass_FDO2_DeviceID
+                result_dict['Storclass_1_FL'] = Storclass_1_FL
     return
 
 

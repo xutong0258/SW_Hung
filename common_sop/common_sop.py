@@ -54,6 +54,6 @@ if __name__ == '__main__':
 
         create_ok = create_folder(result_dir)
         if create_ok:
-            one_process_run(dump_file, path_dir)
+            one_process_run(dump_file, path_dir, step_only=5)
             copy_files(result_dir)
             post_report_process(result_dir)

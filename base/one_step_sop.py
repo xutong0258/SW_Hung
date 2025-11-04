@@ -97,7 +97,7 @@ def one_process_run(dump_file, path_dir, step_only=15):
             process_vm_run(step_dict, current_step=4)
             total_dict['Process'] = step_dict
 
-        # 5. Storage
+        # 5. Storage, Disk
         if step_only == 15 or step_only == 5:
             step_dict = {}
             logger.info(f'5.Storage')

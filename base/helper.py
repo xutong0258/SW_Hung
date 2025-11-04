@@ -141,7 +141,7 @@ def get_stack_begin_index(input_list):
             break
     return index
 
-def is_number(obj):
+def is_address(obj):
     # 排除布尔类型（虽然bool是int的子类，但通常不视为数字）
     if 'ffff' in obj:
         return True
@@ -344,7 +344,7 @@ def update_context_with_list(cmd_output_list, result_dict, key):
 
 if __name__ == '__main__':
     obj = 'ffffe00167eea1c0'
-    value = is_number(obj)
+    value = is_address(obj)
     logger.info(value)
     # cmd = " ".join(args)
     # result, errors, return_code = cmd_excute(cmd)
