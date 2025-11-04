@@ -1,0 +1,11 @@
+
+match = re.search(r'\d+\.\d+', OS_Version_ID)
+
+if match:
+    OS_Version_ID = match.group()
+    logger.info(f"提取的数字部分：{OS_Version_ID}")  # 输出：9600.17238
+else:
+    logger.info("未找到数字部分")
+
+get_list_text_count
+cmd_output_list = cmd_output.splitlines()
