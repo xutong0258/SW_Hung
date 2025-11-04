@@ -1,0 +1,466 @@
+{
+  "Categories": {
+    "OS": {
+      "Solution": "1. Check if the other project with same platform can repro this CPU BSOD.\n2. Co-work with BIOS Owner to check ACPI Active Method Object and Context (Next AML Pointer).\n3. Check if this CPU BSOD can't repro after optimize ACPI Active Method."
+    },
+    "Platform": {
+      "Solution": "1. Check if this issue only happened after updated new driver version; if yes, rollback to old driver version to repro.\n2. Co-work with Driver Owner to involve Driver Vendor to debug.\n3. Check if this BSOD can't repro with latest driver version."
+    },
+	"VGA": {
+      "Solution": "1. Check if this issue only happened after updated new driver version; if yes, rollback to old driver version to repro.\n2. Co-work with Driver Owner to involve Driver Vendor to debug.\n3. Check if this BSOD can't repro with latest driver version."
+    },
+	"Audio": {
+      "Solution": "1. Check if the other project with same audio model can repro this audio BSOD.\n2. Co-work with audio driver owner to involve audio Vendor to debug.\n3. Check if this AUDIO GPU BSOD can‘t repro with latest audio driver version.\n4. Check if this AUDIO GPU BSOD can‘t repro with Windows in-box audio Driver."
+    },
+	"LAN": {
+      "Solution": "1. Check if this issue only happened after updated new driver version; if yes, rollback to old driver version to repro.\n2. Co-work with Driver Owner to involve Driver Vendor to debug.\n3. Check if this BSOD can't repro with latest driver version."
+    },
+	"WLAN": {
+      "Solution": "1. Check if this WLAN BSOD happened on single or multiple WLAN Model .\n2. Check if the other project with same WLAN model can repro this WLAN GPU BSOD.\n3. Co-work with WLAN Driver Owner to involve WLAN Vendor to debug.\n4. Check if this WLAN BSOD can‘t repro with latest WLAN Driver version.\n5. Check if this WLAN BSOD can‘t repro after disable WLAN PCIE Port on BIOS.\n6. Check if this WLAN BSOD can't repro after disable WLAN PCIE ASPM."
+    },
+	"Bluetooth": {
+      "Solution": "1. Check if this BT BSOD happened on single or multiple BT Model .\n2. Check if the other project with same BT model can repro this BT BSOD.\n3. Co-work with BT Driver Owner to involve BT Vendor to debug.\n4. Check if this BT BSOD can't repro with latest BT driver version.\n5. Check if this BT BSOD can't repro after disable BT USB Port on BIOS.\n6. Check if this BT BSOD can't repro with Windows BT in-box Driver .\n7. Check if this BT BSOD can't repro after Keep BT D0."
+    },
+	"CardReader": {
+      "Solution": "1. Check if this issue only happened after updated new driver version; if yes, rollback to old driver version to repro.\n2. Co-work with Driver Owner to involve Driver Vendor to debug.\n3. Check if this BSOD can't repro with latest driver version."
+    },
+	"Camera": {
+      "Solution": "1. Check if this issue only happened after updated new driver version; if yes, rollback to old driver version to repro.\n2. Co-work with Driver Owner to involve Driver Vendor to debug.\n3. Check if this BSOD can't repro with latest driver version."
+    },
+	"GPS": {
+      "Solution": "1. Check if this issue only happened after updated new driver version; if yes, rollback to old driver version to repro.\n2. Co-work with Driver Owner to involve Driver Vendor to debug.\n3. Check if this BSOD can't repro with latest driver version."
+    },
+	"Pen": {
+      "Solution": "1. Check if this issue only happened after updated new driver version; if yes, rollback to old driver version to repro.\n2. Co-work with Driver Owner to involve Driver Vendor to debug.\n3. Check if this BSOD can't repro with latest driver version."
+    },
+	"IGRS": {
+      "Solution": "1. Check if this issue only happened after updated new driver version; if yes, rollback to old driver version to repro.\n2. Co-work with Driver Owner to involve Driver Vendor to debug.\n3. Check if this BSOD can't repro with latest driver version."
+    }
+  },
+  "Groups": {
+    "ACPI": {
+      "Category": "OS",
+      "Drivers": ["ACPI.sys"]
+    },
+    "Intel_IRST": {
+      "Category": "Platform",
+      "Drivers": ["iaStorA.sys", "iaStorF.sys"]
+    },
+    "Intel_MEI": {
+      "Category": "Platform",
+      "Drivers": ["MEIx64.sys", "teedriverw8x64.sys", "teedriverx64.sys"]
+    },
+    "Intel_GPIO": {
+      "Category": "Platform",
+      "Drivers": ["iaLPSS2_GPIO2.sys"]
+    },
+    "Intel_I2C": {
+      "Category": "Platform",
+      "Drivers": ["iaLPSS2_I2C.sys"]
+    },
+    "Intel_DPTF": {
+      "Category": "Platform",
+      "Drivers": ["ipf_acpi.sys", "dptf_acpi.sys", "dptf_cpu.sys", "ipf_cpu.sys"]
+    },
+    "Intel_I/O": {
+      "Category": "Platform",
+      "Drivers": [
+        "btmaux.sys", "btmhsf.sys", "btmlehid.sys", "iai2c.sys", "iai2ce.sys",
+        "ialpss2i_i2c.sys", "iamt.sys", "iaprecisetouch.sys", "iastora.sys",
+        "iastorb.sys", "iastorf.sys", "intelhaxm.sys", "intelnit.sys",
+        "intelpcc.sys", "intelpep.sys", "intelppm.sys", "intfsdrv.sys",
+        "ish.sys", "ish_busdriver.sys"
+      ]
+    },
+	"Intel_NPU": {
+      "Category": "Platform",
+      "Drivers": [
+        "npu_kmd.sys"
+      ]
+    },
+	"Intel_ISH": {
+      "Category": "Platform",
+      "Drivers": [
+        "ishHidbus.sys",
+		"ishHeci.sys",
+		"ishOed.sys"
+      ]
+    },
+	"Intel_ISST": {
+      "Category": "Platform",
+      "Drivers": [
+        "IntcOED.sys",
+		"IntcSST.sys",
+		"IntcUSB.sys",
+		"IntcAudioBus.sys"
+      ]
+    },
+	"Intel_Virtual_Button": {
+      "Category": "Platform",
+      "Drivers": [
+        "virtualbuttons.sys"
+      ]
+    },
+	"Intel_hid_event_filter": {
+      "Category": "Platform",
+      "Drivers": [
+        "hideventfilter.sys"
+      ]
+    },
+	"Intel_TBT": {
+      "Category": "Platform",
+      "Drivers": [
+        "tbt100x.sys",
+		"tp2p100x.sys"
+      ]
+    },
+	"Intel_SPI": {
+      "Category": "Platform",
+      "Drivers": [
+        "iaLPSS2_SPI.sys"
+      ]
+    },
+	"Intel_UART": {
+      "Category": "Platform",
+      "Drivers": [
+        "iaLPSS2_UART2.sys"
+      ]
+    },
+	"AMD_GPIO": {
+      "Category": "Platform",
+      "Drivers": [
+        "amdgpio.sys",
+		"amdgpio2.sys"
+      ]
+    },
+	"AMD_I2C": {
+      "Category": "Platform",
+      "Drivers": [
+        "amdi2c.sys"
+      ]
+    },
+	"Intel_SMBus": {
+      "Category": "Platform",
+      "Drivers": [
+        "amdsmbus.sys"
+      ]
+    },
+	"AMD_PSP": {
+      "Category": "Platform",
+      "Drivers": [
+        "amdkmcsp.sys",
+		"amdpsp.sys"
+      ]
+    },
+	"AMD_I/O": {
+      "Category": "Platform",
+      "Drivers": [
+        "amd_sata.sys",
+		"amd_xata.sys",
+		"amdhub30.sys",
+		"amdkmcsp.sys",
+		"amdkmpfd.sys",
+		"amdppm.sys",
+		"amdpsp.sys",
+		"amdsata.sys"
+      ]
+    },
+	"AMD_Hseries": {
+      "Category": "Platform",
+      "Drivers": [
+        "amdide.sys",
+		"amdide64.sys",
+		"usbfilter.sys"
+      ]
+    },
+	"Intel_Display_Audio": {
+      "Category": "VGA",
+      "Drivers": [
+        "IntcDAud.sys"
+      ]
+    },
+	"Intel_Display_Graphics": {
+      "Category": "VGA",
+      "Drivers": [
+        "igdkmdn64.sys",
+		"igdkmdnd64.sys",
+		"IntcDAud.sys",
+		"CtaChildDriver.sys"],
+		"Solution": "1. Check if this Intel iGPU BSOD happened on single test unit.\n2. Check if the other project with same Intel iGPU model can repro this Intel iGPU BSOD.\n3. Add TDR debug Key (TdrLevel = 1, TDR debugmode=0) and repro this issue to capture BSOD dump file.\n4. Check if this Intel iGPU BSOD can‘t repro with latest Intel iGPU driver version.\n5. Check if this Intel iGPU BSOD can‘t repro with discrete mode.\n6. Check if this Intel iGPU BSOD can‘t repro with Windows Basic Display in-box Driver.\n7. Check if this Intel iGPU BSOD can't repro after disable Power Saving Feature (RC6)."
+    },
+	"AMD_ACP": {
+      "Category": "VGA",
+      "Drivers": [
+        "amdacpbus.sys"
+      ]
+    },
+	"AMD_Display_Audio": {
+      "Category": "VGA",
+      "Drivers": [
+        "AtihdWt6.sys",
+		"atihdwb6.sys"
+      ]
+    },
+	"AMD_Display_Graphics": {
+      "Category": "VGA",
+      "Drivers": [
+        "atikmdag.sys",
+		"atikmpag.sys",
+		"atdcm64a.sys",
+		"amdkmdag.sys"
+      ],
+	  "Solution": "1. Check if this issue only happened after updated new AMD iGPU driver version, if Yes, rollback to old AMD iGPU driver version to repro.\n2. Check if the other project with same AMD iGPU model can repro this AMD iGPU BSOD.\n3. Add TDR debug Key (TdrLevel = 1, TDR debugmode=0) and repro this issue to capture BSOD dump file.\n4. Check if this AMD iGPU BSOD can‘t repro with latest AMD iGPU driver version.\n5. Check if this AMD iGPU BSOD can‘t repro with discrete mode.\n6. Check if this AMD iGPU BSOD can‘t repro with Windows Basic Display in-box Driver.\n7. Check if this AMD iGPU BSOD can't repro after disable AMD iGPU Power Saving Feature (GFXOFF)."
+    },
+	"NVIDIA_Display_Graphics": {
+      "Category": "VGA",
+      "Drivers": [
+        "nvlddmkm.sys"
+      ],
+	  "Solution": "1. Check if this NVidia GPU BSOD happened on single test unit.\n2. Check if this NVidia GPU BSOD happened on single or multiple NVidia GPU Model .\n3. Check if the other project with same NVidia GPU model can repro this NVidia GPU BSOD.\n4. If this issue only happened on GPU OC Enable.\n5. Check if NVidia MODS can pass on failed unit .\n6. Check if Nvidia NVPunish can pass on failed unit.\n7. Add TDR debug Key (TdrLevel = 1, TDR debugmode=0) and repro this issue to capture BSOD dump file.\n8. Check if this NVidia GPU BSOD can't repro with UMA mode.\n9. Check if this NVidia GPU BSOD can't repro with latest Nvidia GPU VBIOS and Driver version.\n10. Check if this NVidia GPU BSOD can't repro after disable Power Saving Feature (GCOff/GC6/GPS/ASPM/Powerfeature1/Powerfeature2).\n11. Check if this NVidia GPU BSOD can't repro after limit GPU P8 state."
+    },
+	"NVIDIA_Display_Audio": {
+      "Category": "VGA",
+      "Drivers": [
+        "nvvad32v.sys",
+		"nvvad64v.sys",
+		"nvhda64v.sys"
+		
+      ]
+    },
+	"NVIDIA_PCF": {
+      "Category": "VGA",
+      "Drivers": [
+        "nvpcf.sys"
+      ]
+    },
+	"Conexant_Audio": {
+      "Category": "Audio",
+      "Drivers": [
+        "CHDRT64ISST.sys"
+      ]
+    },
+	"Realtek_Audio": {
+      "Category": "Audio",
+      "Drivers": [
+        "RTKVHD64.sys"
+      ]
+    },
+	"Smart_AMP": {
+      "Category": "Audio",
+      "Drivers": [
+        "RTKVHD64.sys",
+		"XuCsMe.sys",
+		"csaudio.sys"
+      ]
+    },
+	"HPD": {
+      "Category": "Audio",
+      "Drivers": [
+        "ElabsSdca.sys",
+		"ElabsSSPBUS.sys"
+      ]
+    },
+	"Intel_LAN": {
+      "Category": "LAN",
+      "Drivers": [
+        "e1i63x64.sys",
+		"e1d68x64.sys",
+		"e2f.sys",
+		"e2fn.sys",
+		"e1dn.sys",
+		"e1d.sys"
+      ]
+    },
+	"Realtek_LAN": {
+      "Category": "LAN",
+      "Drivers": [
+        "rt640x64.sys",
+		"rt64win7.sys",
+		"rt86win7.sys",
+		"rtka2dp.sys",
+		"rtkbtfilter.sys",
+		"rtkvhd64.sys",
+		"rtkvhda.sys",
+		"rtl8187.sys",
+		"rtl8187b.sys",
+		"rtsuer.sys",
+		"rtvdevw10x64.sys",
+		"rt25cx21x64.sys",
+		"rt25dcx21x64.sys",
+		"rt68cx21x64.sys",
+		"rt68dcx21x64.sys",
+		"rtots640x64.sys"
+      ]
+    },
+	"YT6801_LAN": {
+      "Category": "LAN",
+      "Drivers": [
+        "yt640px64.sys",
+		"ytcx21x64.sys"
+      ]
+    },
+	"Qualcomm_WLAN": {
+      "Category": "WLAN",
+      "Drivers": [
+        "qcwlan64.sys"
+      ]
+    },
+	"Qualcomm_WLAN": {
+      "Category": "WLAN",
+      "Drivers": [
+        "qcwlan64.sys"
+      ]
+    },
+	"Realtek_WLAN": {
+      "Category": "WLAN",
+      "Drivers": [
+        "rtwlane.sys",
+		"rtsuvstor.sys",
+		"rtu30x64w7.sys",
+		"rtu64w8.sys",
+		"rtusba64.sys",
+		"rtux64w10.sys",
+		"rtvlan620.sys",
+		"rtwlanu.sys",
+		"rtwlanu_oldic.sys",
+		"rtwlane6.sys",
+		"rtwlane601.sys",
+		"rtwlane602.sys",
+		"rtwlane711.sys"
+      ]
+    },
+	"Intel_WLAN": {
+      "Category": "WLAN",
+      "Drivers": [
+        "Netwtw01.sys",
+		"netwtw04.sys",
+		"netwtw06.sys",
+		"netwbn02.sys",
+		"netwbw02.sys",
+		"netwbw04.sys",
+		"netwew02.sys",
+		"netwsn02.sys",
+		"netwsn04.sys",
+		"netwsw02.sys",
+		"netwsw04.sys",
+		"netwtn04.sys",
+		"netwtw02.sys",
+		"NETwaw10.sys",
+		"netwtw08.sys",
+		"netwtw10.sys",
+		"NETwtw08.sys",
+		"NETwtw10.sys",
+		"NETwtw14.sys",
+		"NETwtw16.sys",
+		"NETwaw14.sys",
+		"NETwaw16.sys"
+      ]
+    },
+	"MTK_WLAN": {
+      "Category": "WLAN",
+      "Drivers": [
+        "mtkwl6ex.sys",
+		"mtkwecx.sys"
+      ]
+    },
+	"Killer_WLAN": {
+      "Category": "WLAN",
+      "Drivers": [
+        "KfeCo10X64.sys",
+		"KfeCo11X64.sys"
+      ]
+    },
+	"Qualcomm_WLAN": {
+      "Category": "WLAN",
+      "Drivers": [
+        "btfilter.sys"
+      ]
+    },
+	"Qualcomm_Bluetooth": {
+      "Category": "Bluetooth",
+      "Drivers": [
+        "btfilter.sys"
+      ]
+    },
+	"Realtek_Bluetooth": {
+      "Category": "Bluetooth",
+      "Drivers": [
+        "RtkBtfilter.sys"
+      ]
+    },
+	"Intel_Bluetooth": {
+      "Category": "Bluetooth",
+      "Drivers": [
+        "ibtusb.sys",
+		"ibtpci.sys"
+      ]
+    },
+	"MTK_Bluetooth": {
+      "Category": "Bluetooth",
+      "Drivers": [
+        "mtkbtfilterx.sys",
+		"mtkbtacx.sys"
+      ]
+    },
+	"Bayhub_Cardreader": {
+      "Category": "CardReader",
+      "Drivers": [
+        "bhtsddr.sys",
+		"bhtpcrdr.sys"
+      ]
+    },
+	"Genesys_Cardreader": {
+      "Category": "CardReader",
+      "Drivers": [
+        "GlPciSD.sys",
+		"genestor.sys"
+      ]
+    },
+	"Realtek_Cardreader": {
+      "Category": "CardReader",
+      "Drivers": [
+        "RtsUer.sys",
+		"RtsPer.sys"
+      ]
+    },
+	"Aclor_Smartcard": {
+      "Category": "CardReader",
+      "Drivers": [
+        "AKCCID.sys"
+      ]
+    },
+	"Intel_MIPI_Camera": {
+      "Category": "Camera",
+      "Drivers": [
+        "iaisp64.sys",
+		"iacamera64.sys",
+		"iactrllogic64.sys",
+		"hm1092.sys",
+		"Dio5644.sys",
+		"OV02C10.sys"
+      ]
+    },
+	"GPS": {
+      "Category": "GPS",
+      "Drivers": [
+        "wudfrd.sys",
+		"swlocrm.dll"
+      ]
+    },
+	"Pen": {
+      "Category": "Wacom_Pen",
+      "Drivers": [
+        "WacHIDRouterISDF.sys",
+		"WacHIDRouterISDU.sys",
+		"WacRouterFilterISD.sys"
+      ]
+    },
+	"IGRS": {
+      "Category": "IGRS",
+      "Drivers": [
+        "LcfcIntelligentRFIVDDriver.sys"
+      ]
+    }
+	
+  }
+}
