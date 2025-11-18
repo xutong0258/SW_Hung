@@ -100,8 +100,6 @@ def update_Current_Thread_report(result_dict):
                     'nt!PopFxActivateDevice_Status',
                     'BSOD_Suspicious_Driver',
                     'BSOD_Suspicious_Device',
-                    'thread_Context',
-                    'running_Context',
                     ]
     for content in content_list:
         value = result_dict.get(content, '')
@@ -119,7 +117,9 @@ def update_Current_Thread_report(result_dict):
 
 def update_Storage_debug_data(result_dict):
     dict_str = 'Storage: \n'
-    content_list = ['Disk1_Status_Abnormal',
+    content_list = ['Storclass_0_FL',
+                    'Storclass_1_FL',
+                    'Disk1_Status_Abnormal',
                     'Disk2_Status_Abnormal',
                     'BSOD_Suspicious_Device',
                     'Storclass_FDO1_DeviceID',
@@ -509,14 +509,14 @@ def dump_result_yaml(result_dict, BSOD_Debug_Data_str, dir_name, BSOD_Debug_repo
     log_lines_str = ''.join(log_lines)
     fileOP.wrtie_file(result_yaml_file, log_lines_str)
 
-    result_yaml_file = 'BSOD_Debug_Data.yaml'
-    result_yaml_file = os.path.join(dir_name, result_yaml_file)
-    fileOP.wrtie_file(result_yaml_file, BSOD_Debug_Data_str)
+    # result_yaml_file = 'BSOD_Debug_Data.yaml'
+    # result_yaml_file = os.path.join(dir_name, result_yaml_file)
+    # fileOP.wrtie_file(result_yaml_file, BSOD_Debug_Data_str)
 
-    if BSOD_Debug_report_str:
-        result_yaml_file = 'BSOD_Debug_Report.yaml'
-        result_yaml_file = os.path.join(dir_name, result_yaml_file)
-        fileOP.wrtie_file(result_yaml_file, BSOD_Debug_report_str)
+    # if BSOD_Debug_report_str:
+    #     result_yaml_file = 'BSOD_Debug_Report.yaml'
+    #     result_yaml_file = os.path.join(dir_name, result_yaml_file)
+    #     fileOP.wrtie_file(result_yaml_file, BSOD_Debug_report_str)
 
     return
 
@@ -561,7 +561,7 @@ def get_blocked_IRP_Address_thread(cmd_output_list, result_dict):
     blocked_IRP_address_status = 0
     if cmd_output_list:
         result_str = '\n' + '\n'.join(cmd_output_list)
-        result_dict['Locks_thread_context'] = result_str
+        # result_dict['Locks_thread_context'] = result_str
 
         for idx, line in enumerate(cmd_output_list):
             line = line.strip()
@@ -582,7 +582,7 @@ def get_blocked_IRP_Address_pnp(cmd_output_list, result_dict):
     PnP_blocked_IRP_address_status = 0
     if cmd_output_list:
         result_str = '\n' + '\n'.join(cmd_output_list)
-        result_dict['Locks_thread_context'] = result_str
+        # result_dict['Locks_thread_context'] = result_str
 
         for idx, line in enumerate(cmd_output_list):
             line = line.strip()
@@ -599,7 +599,7 @@ def get_blocked_IRP_Address_pnp(cmd_output_list, result_dict):
 
 def parse_locks_info(cmd_output_list, result_dict):
     new_result = get_list_strip(cmd_output_list)
-    result_dict['Locks_Context'] = new_result
+    # result_dict['Locks_Context'] = new_result
 
     # 执行解析
     # logger.info(f'file_content_new: {file_content_new}')
@@ -656,7 +656,7 @@ def parse_sysinfo_cpuspeed(cmd_output, result_dict):
             CPUID = match.group()
             # logger.info(f"CPUID：{CPUID}")
         else:
-            logger.info("未找到数字部分")
+            logger.info("未找到: CPUID")
         CPUID = CPUID.replace('CPUID:', '')
         CPUID = CPUID.replace('"', '').strip()
         logger.info(f'CPUID: {CPUID}')
@@ -779,7 +779,7 @@ def parse_analyze_v(cmd_output, result_dict):
     start_text = f'STACK_TEXT:'
     end_text = 'SYMBOL_NAME:'
     result = fileOP.get_text_with_start_and_end(cmd_output_list, start_text, end_text)
-    update_context_with_list(result, result_dict, 'STACK_TEXT')
+    # update_context_with_list(result, result_dict, 'STACK_TEXT')
 
     Stack_Memory_Operation_Status = 0
     if result:
@@ -828,7 +828,7 @@ def parse_amli_lc(cmd_output_list, result_dict):
     ACPI_Method_Object = ''
     ACPI_Method_Status = 0
     for item in cmd_output_list:
-        logger.info(f"item: {item}")
+        # logger.info(f"item: {item}")
         if 'Ctxt=' in item:
             ACPI_Method_Address = re.findall(r'Ctxt=(.*?),', item)
             ACPI_Method_Address = ACPI_Method_Address[0]
@@ -897,7 +897,7 @@ def parse_storadapter_storadapter_adapter_address2_sub(cmd_output_list, result_d
 
 def parse_storadapter_storadapter_adapter1_address(cmd_output_list, result_dict):
     result_str = '\n' + '\n'.join(cmd_output_list)
-    result_dict['storadapter_adapter1_Context'] = result_str
+    # result_dict['storadapter_adapter1_Context'] = result_str
 
     count = get_list_text_count(cmd_output_list, 'SurpriseRemoval')
     if count:
@@ -934,7 +934,7 @@ def parse_storadapter(cmd_output_list, result_dict):
 
 def parse_storagekd_storclass(cmd_output_list, result_dict):
     result_str = '\n' + '\n'.join(cmd_output_list)
-    result_dict['Storclass_FDO1_Context'] = result_str
+    # result_dict['Storclass_FDO1_Context'] = result_str
     # need logic
     count = get_list_text_count(cmd_output_list, 'Retried')
     if count > 4:
@@ -991,6 +991,8 @@ def parse_powertriage(cmd_output_list, result_dict):
     # logger.info(f'result_dict type: {type(result_dict, current_step)}')
     # System_State_Context
     index = get_list_text_line_first_index(cmd_output_list, 'Power Action:')
+    if index is None:
+        return
     start_idx = index + 1
     end_idx = start_idx + 6
     System_State_Context = cmd_output_list[start_idx: end_idx]
@@ -998,9 +1000,10 @@ def parse_powertriage(cmd_output_list, result_dict):
     result_dict['System_State_Context'] = System_State_Context
     logger.info(f'System_State_Context: {System_State_Context}')
 
-
     index = get_list_text_line_first_index(cmd_output_list, '+')
     logger.info(f'index: {index}')
+    if index is None:
+        return
     start_idx = index + 1
 
     # logger.info(f'cmd_output_list: {cmd_output_list}')

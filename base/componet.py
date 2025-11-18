@@ -40,17 +40,17 @@ def dpc_run(result_dict, Automatic_dict, current_step):
         cmd = f"~{swd_DPCTimeout_CPU}"
         logger.info(f'cmd: {cmd}')
         cmd_output = windbg.execute_command(cmd, current_step, timeout=15)
-        result_dict['thread_Context'] = cmd_output
+        # result_dict['thread_Context'] = cmd_output
 
         cmd = f"!thread"
         logger.info(f'cmd: {cmd}')
         cmd_output = windbg.execute_command(cmd, current_step, timeout=15)
-        update_context(cmd_output, result_dict, 'thread_Context')
+        # update_context(cmd_output, result_dict, 'thread_Context')
 
     cmd = "!running -it"
     logger.info(f'cmd: {cmd}')
     cmd_output = windbg.execute_command(cmd, current_step, timeout=15)
-    update_context(cmd_output, result_dict, 'running_Context')
+    # update_context(cmd_output, result_dict, 'running_Context')
     return
 
 def PnP_run(result_dict, current_step):
@@ -346,7 +346,7 @@ def process_vm_run(result_dict, current_step):
     cmd_output = windbg.execute_command(cmd, current_step, timeout=15)
     # time.sleep(15)
 
-    result_dict['VM_Context'] = cmd_output
+    # result_dict['VM_Context'] = cmd_output
 
     return
 
@@ -370,12 +370,12 @@ def current_thread_run(result_dict, current_step):
     cmd = "!thread"
     logger.info(f'cmd: {cmd}')
     cmd_output = windbg.execute_command(cmd, current_step, timeout=15)
-    result_dict['thread_Context'] = cmd_output
+    # result_dict['thread_Context'] = cmd_output
 
     cmd = "!running -it"
     logger.info(f'cmd: {cmd}')
     cmd_output = windbg.execute_command(cmd, current_step, timeout=15)
-    result_dict['running_Context'] = cmd_output
+    # result_dict['running_Context'] = cmd_output
 
     Current_Thread_Power_Status_Abnormal = 0
     result_dict['Current_Thread_Power_Status_Abnormal'] = Current_Thread_Power_Status_Abnormal
@@ -406,7 +406,7 @@ def system_info_run(result_dict, current_step):
     cmd = "!sysinfo smbios"
     logger.info(f'cmd: {cmd}')
     cmd_output = windbg.execute_command(cmd, current_step, timeout=15)
-    result_dict['smbios_context'] = cmd_output
+    # result_dict['smbios_context'] = cmd_output
 
     return
 

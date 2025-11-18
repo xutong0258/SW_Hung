@@ -5,27 +5,6 @@ from base.logger import *
 
 BASEDIR = os.path.dirname(__file__)
 
-def delete_folder(folder_path):
-    try:
-        # 检查文件夹是否存在
-        if not os.path.exists(folder_path):
-            logger.info(f"错误: 文件夹 '{folder_path}' 不存在")
-            return
-            
-        # 检查是否是文件夹
-        if not os.path.isdir(folder_path):
-            logger.info(f"错误: '{folder_path}' 不是一个文件夹")
-            return
-            
-        # 删除文件夹及其内容
-        shutil.rmtree(folder_path)
-        logger.info(f"文件夹 '{folder_path}' 已成功删除")
-        
-    except PermissionError:
-        logger.info(f"错误: 没有权限删除 '{folder_path}'")
-    except Exception as e:
-        logger.info(f"删除文件夹时发生错误: {str(e)}")
-
 def solution_check_run(path_dir,input_dict):
     rule_count = 10
     check_result_list = []
@@ -230,7 +209,7 @@ def post_report_process(folder_path=None):
     # folder_path = r'D:\0_LOG_VIP\test'
 
     for root, dirs, files in os.walk(folder_path):
-        target_file = 'BSOD_Debug_Report.yaml'
+        target_file = 'result.yaml'
         for file in files:
             if file == target_file:
                 logger.info(f"root: {root}")
@@ -241,5 +220,5 @@ def post_report_process(folder_path=None):
 # 使用示例
 if __name__ == "__main__":
     # 要删除的文件夹路径
-    folder_path = r'D:\0_LOG_VIP\Result_10_28'
+    folder_path = r'D:\SW_Hung\common_sop\01_Legion Pro 7 16AFR10H_PF5JBP1F_2025_09_28_10_01_27--sku4-7-bh-swhang-0xe2-0928'
     post_report_process(folder_path)
