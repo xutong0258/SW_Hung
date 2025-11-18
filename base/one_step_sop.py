@@ -15,7 +15,6 @@ def one_process_run(dump_file, path_dir, step_only=15):
     try:
         step_dict = {}
         Automatic_dict = {}
-        total_dict = {}
         debug_data_str = ''
         sumarry_dict = {}
 
@@ -44,7 +43,6 @@ def one_process_run(dump_file, path_dir, step_only=15):
         # 1. Automatic
         logger.info(f'1.Automatic')
         analyze_v_run(Automatic_dict, current_step=1)
-        total_dict['Automatic Analysis'] = Automatic_dict
 
         step_dict_str = update_Automatic_debug_data(Automatic_dict)
         debug_data_str = debug_data_str + step_dict_str + '\n'
@@ -69,8 +67,6 @@ def one_process_run(dump_file, path_dir, step_only=15):
         Sysinfo_dict = {}
         logger.info(f'2.Sysinfo')
         system_info_run(Sysinfo_dict, current_step=2)
-        total_dict['Sysinfo'] = Sysinfo_dict
-        # logger.info(f'total_dict:{total_dict}')
 
         sumarry_dict['CPUID'] = Sysinfo_dict.get('CPUID', '')
         # logger.info(f'sumarry_dict:{sumarry_dict}')
@@ -83,43 +79,39 @@ def one_process_run(dump_file, path_dir, step_only=15):
 
         # 3. Current Thread
         # if step_only == 16 or step_only == 3:
-        step_dict = {}
+        Current_Thread_dict = {}
         logger.info(f'3.Current Thread')
-        current_thread_run(step_dict, current_step=3)
-        total_dict['Current Thread'] = step_dict
+        current_thread_run(Current_Thread_dict, current_step=3)
 
-        step_dict_str = update_Current_Thread_report(step_dict)
+        step_dict_str = update_Current_Thread_report(Current_Thread_dict)
         debug_report_str = debug_report_str + step_dict_str + '\n'
 
         # 4. Process
         # if step_only == 16 or step_only == 4:
-        step_dict = {}
+        Process_dict = {}
         logger.info(f'4.Process')
-        process_vm_run(step_dict, current_step=4)
-        # total_dict['Process'] = step_dict
+        process_vm_run(Process_dict, current_step=4)
 
         # 5. Storage, Disk
         # if step_only == 15 or step_only == 5:
         Storage_dict = {}
         logger.info(f'5.Storage')
         storage_run(Storage_dict, Automatic_dict, current_step=5)
-        total_dict['Storage'] = Storage_dict
 
         step_dict_str = update_Storage_debug_data(Storage_dict)
         debug_data_str = debug_data_str + step_dict_str + '\n'
 
         Disk1_Status_Abnormal = Storage_dict.get('Disk1_Status_Abnormal')
         Disk2_Status_Abnormal = Storage_dict.get('Disk2_Status_Abnormal')
-        # if Disk1_Status_Abnormal ==1 or Disk2_Status_Abnormal == 1:
-        step_dict_str = update_Storage_debug_report(Storage_dict)
-        debug_report_str = debug_report_str + step_dict_str + '\n'
+        if Disk1_Status_Abnormal ==1 or Disk2_Status_Abnormal == 1:
+            step_dict_str = update_Storage_debug_report(Storage_dict)
+            debug_report_str = debug_report_str + step_dict_str + '\n'
 
         # 14. locks_0xE2
         # if BUGCHECK_CODE == 'e2' and (step_only == 15 or step_only == 14):
         locks_dict = {}
         logger.info(f'14.locks_0xE2')
         locks_run(locks_dict, current_step=14)
-        total_dict['locks_0xE2'] = locks_dict
 
         step_dict_str = update_locks_0xE2_debug_data(locks_dict)
         debug_data_str = debug_data_str + step_dict_str + '\n'
@@ -143,8 +135,5 @@ def one_process_run(dump_file, path_dir, step_only=15):
     total_dict['Storage'] = Storage_dict
     total_dict['locks'] = locks_dict
 
-    logger.info(f'total_dict:{total_dict}')
     dump_result_yaml(total_dict, debug_data_str, path_dir, debug_report_str)
-
-    # post_report_process(path_dir)
     return
