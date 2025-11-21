@@ -8,7 +8,6 @@ import logging
 import time
 import datetime
 import re
-import cv2
 import subprocess
 from pathlib import Path
 from base.logger import *
