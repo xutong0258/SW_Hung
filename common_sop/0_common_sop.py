@@ -33,8 +33,8 @@ file = r'D:\input.yaml'
 src_dir_list = fileOP.get_file_content_list(file)
 # logger.info(f'src_dir_list: {src_dir_list}')
 
-src_dir_list = [r'G:\SWHang\08_sku4-2_swhang_camear_0xe2\DumpFile\MemoryDump',
-                ]
+# src_dir_list = [r'G:\SWHang\08_sku4-2_swhang_camear_0xe2\DumpFile\MemoryDump',
+#                 ]
 
 if __name__ == '__main__':
     for src_dir in src_dir_list:
@@ -47,8 +47,14 @@ if __name__ == '__main__':
         src_dir_list = src_dir.split('\\')
         logger.info(f'src_dir_list: {src_dir_list}')
 
-        result_dir = os.path.join(path_dir, src_dir_list[2])
-        logger.info(f'result_dir: {result_dir}')
+        result_dir = path_dir
+        for idx, item in enumerate(src_dir_list):
+            if idx < 2:
+                continue
+            logger.info(f'item: {item}')
+
+            result_dir = os.path.join(result_dir, item)
+            logger.info(f'result_dir: {result_dir}')
 
         create_ok = create_folder(result_dir)
         if create_ok:

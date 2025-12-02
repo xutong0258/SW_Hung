@@ -19,9 +19,12 @@ def solution_check_run(path_dir,input_dict):
 def check_rule_1(input_dict):
     logger.info(f'check_rule_1')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
+    # logger.info(f'BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}')
+
     out_dict = {'rule_name': 'check_rule_1',
-                'Exception': 'Intel CPU',
-                'Debug Solution': 'Intel CPU BSOD Pre-Debug List'}
+                'Exception': f'Intel CPU,Intel CPU BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
     CPUID = input_dict.get('CPUID', None)
     Intel_Platform_Status = 0
     if CPUID is not None and 'intel' in CPUID.lower():
@@ -36,9 +39,10 @@ def check_rule_1(input_dict):
 def check_rule_2(input_dict):
     logger.info(f'check_rule_2')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
     out_dict = {'rule_name': 'check_rule_2',
-                'Exception': 'AMD CPU',
-                'Debug Solution': 'Intel CPU BSOD Pre-Debug List'}
+                'Exception': f'AMD CPU,AMD CPU BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
     CPUID = input_dict.get('CPUID', None)
     AMD_Platform_Status = 0
     if CPUID is not None and 'amd' in CPUID.lower():
@@ -53,9 +57,10 @@ def check_rule_2(input_dict):
 def check_rule_3(input_dict):
     logger.info(f'check_rule_3')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
     out_dict = {'rule_name': 'check_rule_3',
-                'Exception': 'Intel Memory',
-                'Debug Solution': 'Intel Memory BSOD Pre-Debug List'}
+                'Exception': f'Intel Memory,Intel Memory BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
     CPUID = input_dict.get('CPUID', None)
     Intel_Platform_Status = 0
     if CPUID is not None and 'intel' in CPUID.lower():
@@ -70,9 +75,10 @@ def check_rule_3(input_dict):
 def check_rule_4(input_dict):
     logger.info(f'check_rule_4')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
     out_dict = {'rule_name': 'check_rule_4',
-                'Exception': 'AMD Memory',
-                'Debug Solution': 'AMD Memory BSOD Pre-Debug List'}
+                'Exception': f'AMD Memory,AMD Memory BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
     CPUID = input_dict.get('CPUID', None)
     AMD_Platform_Status = 0
     if CPUID is not None and 'amd' in CPUID.lower():
@@ -87,9 +93,10 @@ def check_rule_4(input_dict):
 def check_rule_5(input_dict):
     logger.info(f'check_rule_5')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
     out_dict = {'rule_name': 'check_rule_5',
-                'Exception': 'Disk',
-                'Debug Solution': 'Disk BSOD Pre-Debug List'}
+                'Exception': f'Disk,Disk BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
 
     Disk_Status_Abnormal = input_dict.get('Disk_Status_Abnormal', None)
     logger.info(f"Disk_Status_Abnormal: {Disk_Status_Abnormal}")
@@ -101,9 +108,10 @@ def check_rule_5(input_dict):
 def check_rule_6(input_dict):
     logger.info(f'check_rule_6')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
     out_dict = {'rule_name': 'check_rule_6',
-                'Exception': 'Intel Platform',
-                'Debug Solution': '3rd Common BSOD Pre-Debug List'}
+                'Exception': f'Intel Platform,3rd Common BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
     CPUID = input_dict.get('CPUID', None)
     Intel_Platform_Status = 0
     if CPUID is not None and 'intel' in CPUID.lower():
@@ -116,9 +124,10 @@ def check_rule_6(input_dict):
 def check_rule_7(input_dict):
     logger.info(f'check_rule_7')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
     out_dict = {'rule_name': 'check_rule_7',
-                'Exception': 'AMD Platform',
-                'Debug Solution': '3rd Common BSOD Pre-Debug List'}
+                'Exception': f'AMD Platform,3rd Common BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
     CPUID = input_dict.get('CPUID', None)
     if CPUID is not None and 'amd' in CPUID.lower():
         return_dict = out_dict
@@ -128,9 +137,10 @@ def check_rule_7(input_dict):
 def check_rule_8(input_dict):
     logger.info(f'check_rule_8')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
     out_dict = {'rule_name': 'check_rule_8',
-                'Exception': 'ACPI',
-                'Debug Solution': 'Intel CPU BSOD Pre-Debug List'}
+                'Exception': f'ACPI,Intel CPU BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
     ACPI_Status_Abnormal = input_dict.get('ACPI_Status_Abnormal', None)
     if ACPI_Status_Abnormal is not None and ACPI_Status_Abnormal == 1:
         return_dict = out_dict
@@ -140,9 +150,10 @@ def check_rule_8(input_dict):
 def check_rule_9(input_dict):
     logger.info(f'check_rule_9')
     return_dict = None
+    BSOD_Suspicious_Driver = input_dict.get('BSOD_Suspicious_Driver', None)
     out_dict = {'rule_name': 'check_rule_9',
-                'Exception': 'OS',
-                'Debug Solution': '3rd Common BSOD Pre-Debug List'}
+                'Exception': f'OS, 3rd Common BSOD Pre-Debug List,BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}',
+                }
     OS_Status_Abnormal = input_dict.get('OS_Status_Abnormal', None)
     if OS_Status_Abnormal is not None and OS_Status_Abnormal == 1:
         return_dict = out_dict
@@ -159,6 +170,12 @@ def Suspicious_Driver_Check(BSOD_Suspicious_Driver, final_dict):
     # logger.info(f"tmp_dict:{tmp_dict}")
 
     out_Category = None
+    if BSOD_Suspicious_Driver is None or BSOD_Suspicious_Driver.strip() == '':
+        solution = solution_Categories.get('Platform', None)
+        logger.info(f"Platform solution: {solution}")
+        final_dict['BSOD_Suspicious_Driver_Solution'] = solution
+        return
+
     for key, cell_dict in tmp_dict.items():
         # logger.info(f"key:{key}, value:{cell_dict}")
         Category = cell_dict.get('Category', None)
@@ -188,13 +205,14 @@ def find_solution(path_dir, file_name):
     summary_dic = result_dic.get('Summary', {})
     logger.info(f"summary_dic: {summary_dic}")
 
-    check_result_list = solution_check_run(path_dir, summary_dic)
-    final_dict['check_result_list'] = check_result_list
-
     BSOD_Suspicious_Driver = summary_dic.get('BSOD_Suspicious_Driver', None)
     logger.info(f'BSOD_Suspicious_Driver:{BSOD_Suspicious_Driver}')
 
-    if BSOD_Suspicious_Driver is not None and BSOD_Suspicious_Driver.strip() != '':
+    check_result_list = solution_check_run(path_dir, summary_dic)
+    final_dict['check_result_list'] = check_result_list
+
+    # if BSOD_Suspicious_Driver is not None and BSOD_Suspicious_Driver.strip() != '':
+    # final_dict['BSOD_Suspicious_Driver'] = BSOD_Suspicious_Driver
         Suspicious_Driver_Check(BSOD_Suspicious_Driver, final_dict)
 
     result_yaml_file = 'solution.yaml'
