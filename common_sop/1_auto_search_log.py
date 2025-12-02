@@ -1,4 +1,12 @@
 import os
+import sys
+
+file_path = os.path.abspath(__file__)
+path_dir = os.path.dirname(file_path)
+
+root_dir = os.path.join(path_dir, '../')
+sys.path.append(root_dir)
+
 from base import fileOP
 from base.common import *
 from base.componet import *
@@ -32,7 +40,6 @@ if __name__ == '__main__':
     logger.info(f'src_dir: {src_dir}')
     target_file = '.dmp'
     dump_file = get_latest_file_path_by_dir(src_dir, target_file)
-    # dump_file = os.path.join(src_dir, 'MEMORY.DMP')
 
     src_dir_list = src_dir.split('\\')
     logger.info(f'src_dir_list: {src_dir_list}')

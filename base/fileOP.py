@@ -134,7 +134,7 @@ def parse_locks_content(log_lines):
     max_thread_name = None
     for idx, line in enumerate(log_lines):
         if 'Contention Count =' in line:
-            logger.info(f'line {line}')
+            # logger.info(f'line {line}')
             Contention_Count = line.split('Contention Count =')[1]
             if 'Threads:' in log_lines[idx+2]:
                 thread_idx = idx+2

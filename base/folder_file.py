@@ -1,9 +1,21 @@
 import shutil
 import os
 from base.fileOP import *
-from base.logger import *
+from utils.logger_util import logger
 
 BASEDIR = os.path.dirname(__file__)
+
+def file_walk_delete_file(file_format='.csv'):
+    # 要遍历的文件夹路径
+    folder_path = ROOT_DIR
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            file_path = os.path.join(root, file)
+            # print(file_path)
+            if file_format in file_path:
+                os.remove(file_path)
+                logger.info(f"del: {file_path}")
+    return
 
 def delete_folder(folder_path):
     try:
@@ -163,7 +175,7 @@ def get_file_path_by_dir(folder_path, target_file_name):
     logger.info(f"target_file_path: {target_file_path}")
     return target_file_path
 
-def get_latest_file_path_by_dir(folder_path, target_file):
+def get_latest_file_path_by_dir(folder_path, target_file, target_file_p2=None):
     # 要遍历的文件路径
     target_file_path = None
     file_list = []
@@ -179,11 +191,16 @@ def get_latest_file_path_by_dir(folder_path, target_file):
             file_path = os.path.join(root, file)
             # logger.info(f'file_path:{file_path}')
             # print(file_path)
-            if target_file.lower() in file_path.lower() :
-                c2_Time = os.path.getmtime(file_path)
-                # logger.info(f"c2_Time: {c2_Time}")
-                file_dict[file_path] = c2_Time
-
+            if target_file_p2 is not None:
+                if target_file.lower() in file_path.lower() and target_file_p2.lower() in file_path.lower():
+                    c2_Time = os.path.getmtime(file_path)
+                    # logger.info(f"c2_Time: {c2_Time}")
+                    file_dict[file_path] = c2_Time
+            else:
+                if target_file.lower() in file_path.lower():
+                    c2_Time = os.path.getmtime(file_path)
+                    # logger.info(f"c2_Time: {c2_Time}")
+                    file_dict[file_path] = c2_Time
     max_time = 0
     latest_file = None
     for key, value in file_dict.items():

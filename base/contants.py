@@ -1,9 +1,7 @@
 # coding=utf-8
 import os
 import sys
-import re
-import platform
-import datetime
+
 
 file_path = os.path.abspath(__file__)
 path_dir = os.path.dirname(file_path)
@@ -18,7 +16,7 @@ command_sleep_map = {
     'analyze': 10,
     'storadapter': 6,
     'devstack': 15,
-    'powertriage': 35, # 30
+    'powertriage': 40, # 30
     'amli lc': 15,
     'locks': 15,
     '!WHEA': 10,

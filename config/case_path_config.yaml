@@ -1,0 +1,34 @@
+'01_BSOD':
+    'PATH': 'C:\Windows'
+
+'02_performance':
+    'Intel':
+      'PATH_PASS': 'D:\0_intelcpu_case\cpu Sample_rule1\pass'
+      'PATH_FAIL': 'D:\0_intelcpu_case\cpu Sample_rule1\fail'
+    'AMD':
+      'PATH_PASS': 'D:\0_AMD\rule1——CinebenchR20跑分低-拉prochot温度有顶到\pass'
+      'PATH_FAIL': 'D:\0_AMD\rule1——CinebenchR20跑分低-拉prochot温度有顶到\fail'
+    'GPU':
+      'PATH_PASS': 'D:\0_GPU_case\GPU_Dnotify_rule10_OK\pass'
+      'PATH_FAIL': 'D:\0_GPU_case\GPU_Dnotify_rule10_OK\fail'
+
+'03_单双烤':
+    'Intel':
+      'PATH': 'C:\XXXX'
+    'AMD':
+      'PATH': 'C:\XXXX'
+    'GPU':
+      'PATH': 'C:\XXXX'
+
+
+'04_异常关机重启唤不醒':
+    'PATH': 'C:\Windows'
+
+'05_SW_Hung':
+    'PATH': 'D:\00\05_SW_Hung\SWhang_DiskIO_MemoryDump\MemoryDump'
+
+'06_HW Hung':
+    'PATH': 'C:\XXXX'
+
+'06_HW Hung':
+    'PATH': 'C:\XXXX'
